@@ -28,5 +28,14 @@ export const listAllService =  async () => {
     return services
 }
 
+export const listServiceByStatus = async (status: string) => {
+    const serviceRepository = getRepository(Service)
+
+    const services = await serviceRepository.find({status: status})
+
+    return services
+
+}
+
 
 
