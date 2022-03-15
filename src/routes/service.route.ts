@@ -1,13 +1,13 @@
 import { Express, Router } from "express";
 import { createServiceController, listAllServiceController, listServiceByStatusController, updateStatusServiceController } from "../controllers/service.controller";
-import { serviceNotFound, validateServideUpdate } from "../middlewares";
+import { serviceNotFound, validateStatus, validateCreateService } from "../middlewares";
 
 const route = Router();
 
 export const serviceRoute = (app: Express) => {
-    route.post("", createServiceController)
+    route.post("",validateCreateService, createServiceController)
     route.get("", listAllServiceController)
-    route.get("/status", listServiceByStatusController)
-    route.patch("/:uuid",serviceNotFound, validateServideUpdate, updateStatusServiceController)
+    route.get("/status",validateStatus, listServiceByStatusController)
+    route.patch("/:uuid",serviceNotFound, validateStatus, updateStatusServiceController)
     app.use("/services", route)
 }

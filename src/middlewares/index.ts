@@ -1,4 +1,5 @@
 import { serviceNotFound } from "./serviceNotFound.middleware";
-import { validateServideUpdate } from "./validateServices";
+import { validateStatus } from "./validateStatus.middleware";
+import { validateCreateService } from "./validateCreateService.middleware";
 
-export {serviceNotFound, validateServideUpdate }
+export {serviceNotFound, validateStatus, validateCreateService }
