@@ -1,7 +1,6 @@
 module.exports = {
     "type": "postgres",
-    "host": "localhost",
-    "url": "postgres://igor:1234@localhost:5432/zukt_backend",
+    "url": process.env.DATABASE_URL,
     "logging": false,
     "entities": [
         "src/entities/**/*.ts"
