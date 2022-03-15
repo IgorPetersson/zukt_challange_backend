@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { createService, listAllService, listServiceByStatus } from "../services";
+import { createService, listAllService, listServiceByStatus, updateStatusService } from "../services";
 
 export const createServiceController = async (req: Request, res: Response, next: NextFunction) => {
     const data = req.body;
@@ -16,4 +16,14 @@ export const listServiceByStatusController = async (req: Request, res: Response,
     const status = req.body.status;
     const services = await listServiceByStatus(status)
     res.send(services)
+}
+
+export const updateStatusServiceController = async (req: Request, res: Response, next: NextFunction) => {
+    const uuid = req.params.uuid
+    const data = req.body
+
+    const serviceUpdated = await updateStatusService(uuid, data)
+
+    res.send(serviceUpdated)
+
 }

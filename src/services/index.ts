@@ -6,6 +6,10 @@ interface IServiceCreated {
     localization: string;
 }
 
+interface IServiceUpdate {
+    status: string;
+}
+
 export const createService = async (data: IServiceCreated) => {
     const serviceRepository = getRepository(Service)
 
@@ -35,6 +39,21 @@ export const listServiceByStatus = async (status: string) => {
 
     return services
 
+}
+
+export const updateStatusService = async (uuid: string, data: IServiceUpdate) => {
+    const serviceRepository = getRepository(Service)
+    const service = await serviceRepository.findOne(uuid)
+
+
+    
+    await serviceRepository.save({
+        ...service, ...data
+    })
+
+    const serviceUpdated = await serviceRepository.findOne(uuid)
+
+    return serviceUpdated;
 }
 
 
