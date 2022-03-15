@@ -21,3 +21,12 @@ export const createService = async (data: IServiceCreated) => {
     return serviceCreated
 
 }
+
+export const listAllService =  async () => {
+    const serviceRepository = getRepository(Service)
+    const services =  await serviceRepository.find()
+    return services
+}
+
+
+
