@@ -15,7 +15,7 @@ export const createService = async (data: IServiceCreated) => {
 
     const serviceCreated = serviceRepository.create(
         { 
-            "status": "aberto",
+            "status": "Aberto",
             ...data
         }
     )
