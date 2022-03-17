@@ -93,15 +93,13 @@ Depois disso, digite <em>npm install</em> para instalar todas as dependências:
 ```bash
 npm install
 ```
+É preciso criar um arquivo chamado`.env` com as informações do banco de dados, conforme o `.env.example`.
 
 Depois disso, digite <em> npm run typeorm migration:run </em> para criar a tabela no banco de dados
 
 ```bash
 npm run typeorm migration:run
 ```
-
-Também é preciso criar um arquivo chamado`.env` com as informações do banco de dados, conforme o `.env.example`.
-
 Para iniciar a aplicação em sua máquina local, digite em seu terminal:
 
 ```bash
